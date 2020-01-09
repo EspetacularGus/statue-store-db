@@ -81,8 +81,8 @@ CREATE TABLE Pedido (
 	idTipoPgto INT FOREIGN KEY REFERENCES TipoPgto(idTipoPgto) NULL,
 	idCliente INT FOREIGN KEY REFERENCES Cliente(idCliente) NULL,
 	idEndereco_Cliente INT FOREIGN KEY REFERENCES Endereco_Cliente(idEndereco_Cliente) NULL,
-	idCartaoCredito INT FOREIGN KEY REFERENCES CartaoCredito(idCartao) NULL, --Em caso de pagamento em cart„o
-	idCodigoResgate CHAR(8) FOREIGN KEY REFERENCES CodigoResgate(idCodigoResgate) NULL, --Em caso de pagamento por cÛdigo de resgate
+	idCartaoCredito INT FOREIGN KEY REFERENCES CartaoCredito(idCartao) NULL, --Em caso de pagamento em cart√£o
+	idCodigoResgate CHAR(8) FOREIGN KEY REFERENCES CodigoResgate(idCodigoResgate) NULL, --Em caso de pagamento por c√≥digo de resgate
 	pagamentoAtivo TINYINT NULL, --Em caso de pagamento em boleto
 	idStatusPedido INT FOREIGN KEY REFERENCES StatusPedido(idStatusPedido)
 )
@@ -418,9 +418,9 @@ GO
 -- Adicionando registros globais
 INSERT INTO TipoPgto VALUES
 	('Boleto', null),
-	('Cart„o de CrÈdito', null),
-	('Cart„o de DÈbito', null),
-	('CÛdigo de Resgate', null),
+	('Cart√£o de Cr√©dito', null),
+	('Cart√£o de D√©bito', null),
+	('C√≥digo de Resgate', null),
 	('PayPal', null),
 	('PagSeguro', null)
 GO
@@ -436,18 +436,18 @@ INSERT INTO StatusPedido VALUES
 GO
 
 INSERT INTO NivelAcesso VALUES
-	('Sem Acesso', 'Funcion·rio sem acesso ao Software da loja'),
-	('B·sico', 'Pode visualizar as telas de Acompanhamento de Pedido e Estoque (e exigir encomendas de estoque para fornecedores) + Telas de VisualizaÁ„o de Cadastros (Produtos, Fornecedores e Clientes).'),
-	('Administrador', 'Tem acesso as mesmas telas dos funcion·rios de nÌvel b·sico + telas de cadastro de Produto e Fornecedor) + AlteraÁ„o dos Cadastros de Produtos, Fornecedores e Clientes + Acesso ao Software de Cadastro de Anunciantes e ‡ todas as suas funcionalidades'),
-	('Gerente', 'Tem acesso as mesmas telas dos funcion·rios de nÌvel Administrador + Telas de cadastro de Funcion·rios + Tela de visualizaÁ„o/alteraÁ„o de funcion·rios cadastrados.')
+	('Sem Acesso', 'Funcion√°rio sem acesso ao Software da loja'),
+	('B√°sico', 'Pode visualizar as telas de Acompanhamento de Pedido e Estoque (e exigir encomendas de estoque para fornecedores) + Telas de Visualiza√ß√£o de Cadastros (Produtos, Fornecedores e Clientes).'),
+	('Administrador', 'Tem acesso as mesmas telas dos funcion√°rios de n√≠vel b√°sico + telas de cadastro de Produto e Fornecedor) + Altera√ß√£o dos Cadastros de Produtos, Fornecedores e Clientes + Acesso ao Software de Cadastro de Anunciantes e √† todas as suas funcionalidades'),
+	('Gerente', 'Tem acesso as mesmas telas dos funcion√°rios de n√≠vel Administrador + Telas de cadastro de Funcion√°rios + Tela de visualiza√ß√£o/altera√ß√£o de funcion√°rios cadastrados.')
 GO
 
 INSERT INTO Grupo VALUES 
 	('Indefinido', null, null),
 	('Camisetas', null, null),
 	('Moletons', null, null),
-	('CalÁas', null, null),
-	('AcessÛrios', null, null)
+	('Cal√ßas', null, null),
+	('Acess√≥rios', null, null)
 GO
 
 INSERT INTO Subgrupo VALUES 
@@ -458,7 +458,7 @@ INSERT INTO Subgrupo VALUES
 	('Sem touca', null, null, 3),
 	('Jeans', null, null, 4),
 	('De moletom', null, null, 4),
-	('BonÈs', null, null, 5),
+	('Bon√©s', null, null, 5),
 	('Pulseiras', null, null, 5)
 GO
 
@@ -466,16 +466,16 @@ INSERT INTO StatusAnuncio VALUES
 	('Ativo', null),
 	('Expirado/Inativo', null),
 	('Reprovado', null),
-	('Em An·lise', null),
+	('Em An√°lise', null),
 	('Aguardando Pagamento', null),
 	('Desabilitado', null)
 GO
 
 INSERT INTO TipoAnuncio VALUES 
-	('An˙ncio de Texto', 'Tipo de An˙ncio onde toda a informaÁ„o È transmitida atravÈs de texto, exibidos em uma p·ginas estabelecida apenas para estes.', 2.00),
-	('Banner', 'Tipo de An˙ncio onde seu banner È exibido em qualquer lugar do aplicativo, contendo uma imagem est·tica e um link atribuÌdo', 3.00),
-	('Pop-Up Est·tico', 'Tipo de An˙ncio onde uma imagem surge na tela contendo seu an˙ncio, È exibido de 30 em 30 minutos, ficando por 5 segundos na tela, contÈm link atribuÌdo', 4.00),
-	('Pop-Up VÌdeo', 'Tipo de An˙ncio onde um vÌdeo de sua marca È exibido de 30 em 30 minutos na tela, onde o usu·rio È obrigado a assistir pelo menos 15 segundos do mesmo, contÈm link atribuÌdo', 5.00)
+	('An√∫ncio de Texto', 'Tipo de An√∫ncio onde toda a informa√ß√£o √© transmitida atrav√©s de texto, exibidos em uma p√°ginas estabelecida apenas para estes.', 2.00),
+	('Banner', 'Tipo de An√∫ncio onde seu banner √© exibido em qualquer lugar do aplicativo, contendo uma imagem est√°tica e um link atribu√≠do', 3.00),
+	('Pop-Up Est√°tico', 'Tipo de An√∫ncio onde uma imagem surge na tela contendo seu an√∫ncio, √© exibido de 30 em 30 minutos, ficando por 5 segundos na tela, cont√©m link atribu√≠do', 4.00),
+	('Pop-Up V√≠deo', 'Tipo de An√∫ncio onde um v√≠deo de sua marca √© exibido de 30 em 30 minutos na tela, onde o usu√°rio √© obrigado a assistir pelo menos 15 segundos do mesmo, cont√©m link atribu√≠do', 5.00)
 GO
 
 INSERT INTO Tamanho VALUES
@@ -497,12 +497,12 @@ GO
 INSERT INTO Endereco VALUES (null, null, null, null, null, null, null, null, null)
 GO
 
--- Adicionando 'Gerente Raiz' (Primeiro funcion·rio que ir· cadastrar os outros funcion·rios)
+-- Adicionando 'Gerente Raiz' (Primeiro funcion√°rio que ir√° cadastrar os outros funcion√°rios)
 
 INSERT INTO Funcionario VALUES('12345678999', 'Gustavo', 'de Oliveira Soares Silva', 'M', 'gustavolive22@gmail.com', 'Dd123456', 'Gerente Raiz', '2002-03-25', null, 1500, null, null, null, null, null, null, null, null, null, 4, null)
 GO
 
--- Adicionando outros Funcion·rios
+-- Adicionando outros Funcion√°rios
 
 INSERT INTO Funcionario VALUES('11122233300', 'Gustavo', 'de Oliveira Soares Silva', 'M', 'gustavolive24@gmail.com', 'Dd123456', 'Repositor de Estoque', '2018-10-25', null, 1500, null, null, null, null, null, null, null, null, null, 2, null)
 GO
@@ -562,7 +562,7 @@ GO
 INSERT INTO Detalhe_Tamanho VALUES(100, 20, 5, 8)
 GO
 
--- As IncrÌveis Procedures:
+-- As Incr√≠veis Procedures:
 
 CREATE PROCEDURE autenticarCliente 
 	@emailCliente VARCHAR(12),
